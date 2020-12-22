@@ -20,7 +20,8 @@
 #include <QDebug>
 #include <QTime>
 #include <QDir>
-#include "plib/plib.h"
+#include "plibwin/plib.h"
+#include "plibwin/ptcp.h"
 #include <QInputDialog>
 #include <QComboBox>
 #include <QFileDialog>
@@ -832,6 +833,7 @@ public:
         qRegisterMetaType<string>("string");
         qRegisterMetaType<pliststring>("pliststring");
         qRegisterMetaType<QVector<int>>("QVector<int>");
+        qRegisterMetaType<plist<pliststring>>("plist<pliststring>");
         qRegisterMetaType<plist<pmap<pstring,pstring>>>("plist<pmap<pstring,pstring>>");
 
         //        qRegisterMetaType<plist>("plist");

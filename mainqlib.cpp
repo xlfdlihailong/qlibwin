@@ -1,5 +1,4 @@
 ﻿#include "qlib.h"
-#include "plib/ptrans.h"
 
 void show(pstring str)
 {
@@ -19,13 +18,15 @@ int main(int argc, char *argv[])
     QCoreApplication a(argc, argv);
     qlib::initLog("xlfd.log");
     hlog(plib::pwd());
+//    (plib::ssh("172.16.11.6"));
+//    hlog(plib::xshzky("172.16.14.2","top -n 1"));
 //    hlog(plib::xsh("106.12.222.93","ps -ef|grep ssh"));
-    hlog(plib::xsh("106.12.222.93","df -h"));
-    hlog(plib::xsh("106.12.222.93","ll"));
-    plib::ssh("106.12.222.93","npants0703***");
+//    hlog(plib::xsh("106.12.222.93","df -h"));
+//    hlog(plib::xsh("106.12.222.93","ll"));
+//    plib::ssh("106.12.222.93","npants0703***");
 //    plib::sshThread("106.12.222.93","npants0703***");
-    plib::ssh("zdg0ynrf1d.54http.tech:12698","scfwq_325");
-    hlog("xxxxxxxx");
+//    plib::ssh("zdg0ynrf1d.54http.tech:12698","scfwq_325");
+
 //    plib::vnc("x5glk6u6td.54http.tech:40527","sjcs_325");
 //    pscp scp("106.12.222.93");
 //    scp.uploadThread("icons","/root",funshow);
