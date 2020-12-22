@@ -1,18 +1,4 @@
 ﻿#include "qlib.h"
-
-void show(pstring str)
-{
-    hlog(str);
-}
-
-
-
-
-void funshow(pstring info)
-{
-    hlog(info);
-}
-
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
