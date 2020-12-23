@@ -5,7 +5,7 @@ int main(int argc, char *argv[])
     qlib::initLog("xlfd.log");
     hlog(plib::pwd());
 //    (plib::ssh("172.16.11.6"));
-//    hlog(plib::xshzky("172.16.14.2","top -n 1"));
+    hlog(plib::xshzky("172.16.14.2","ifconfig"));
 //    hlog(plib::xsh("106.12.222.93","ps -ef|grep ssh"));
 //    hlog(plib::xsh("106.12.222.93","df -h"));
 //    hlog(plib::xsh("106.12.222.93","ll"));
