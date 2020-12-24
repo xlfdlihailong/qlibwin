@@ -2371,94 +2371,240 @@ time_t clib_getSecondsFromXtime(xctime time);
 int clib_isBetweenXtime(xctime t, xctime t1, xctime t2);
 
 
-xctime clib_getTimeFromString(const char *pch);
+xctime clib_getTimeFromString(const char *arrchTime);
 
 
-
-//相减精确到ms
-class ptime
-{
+//相减精确到ms,单位是秒
+class ptime {
     xctime time;
+
     void init();
+
     ptime(xctime time);
+
 public:
     //获取当前时间
     ptime();
-    //重新获取当前时间
+
+    //更新当前时间
     void setNowTime();
-    ptime(int year,int mon,int day,int hour,int min,int sec);
-    //xxxx-xx-xx xx:xx:xx
+
+    ptime(int year, int mon, int day, int hour, int min, int sec, int ms);
+
+    //yyyy-mm-dd HH:MM:SS.sss,yyyy-mm-dd HH:MM:SS,yyyymmddHHMMSS,yyyymmddHHMMSSsss 4种
     ptime(string strTime);
-    ptime(const char* acTime);
+
+    //yyyy-mm-dd HH:MM:SS.sss,yyyy-mm-dd HH:MM:SS,yyyymmddHHMMSS,yyyymmddHHMMSSsss 4种
+    ptime(const char *acTime);
+
+    //10种获取当前时间,日期的函数
+    //20200916111111
+    string toStringTimeFullNoSplitNoMs() {
+        pliststring lres = pstring(this->toStringTimeFullNoMs()).split(" -:");
+        return lres.join("");
+    }
+
+    //20200916111111999
+    string toStringTimeFullNoSplit() {
+        pliststring lres = pstring(this->toStringTimeFull()).split("-: .");
+        return lres.join("");
+    }
 
     //2020-09-16 00:44:27
-    static pstring getTimeFullNoMsNow();
-    //00:44:27
-    static pstring getTimeNoMsNow();
-    //00:44:27.854
-    static pstring getTimeNow();
-    //2020-09-16 00:44:27.854
-    static pstring getTimeFullNow();
-    //2020-09-16
-    static pstring getDateNow();
+    string toStringTimeFullNoMs() {
+        return pstring(this->toStringTimeFull()).split(".")[0];
+    }
 
+    //2020-09-16 00:44:27.854
+    string toStringTimeFull() {
+        char acTime[30];
+        clib_getStringFromXtime(this->time, acTime);
+//        hlog(acTime);
+        return string(acTime);
+    }
+
+
+    //001122
+    string toStringTimeNoSplitNoMs() {
+        pliststring lres = pstring(this->toStringTimeNoMs()).split(":");
+        return lres.join("");
+    }
+
+    //001122999
+    string toStringTimeNoSplit() {
+        pliststring lres = pstring(this->toStringTime()).split(":.");
+        return lres.join("");
+    }
+
+    //00:44:27
+    string toStringTimeNoMs() {
+        return pstring(this->toStringTime()).split(".")[0];
+    }
+
+    //00:44:27.854
+    string toStringTime() {
+        return pstring(this->toStringTimeFull()).split(" ")[1];
+    }
+
+    //20200916
+    string toStringDateNoSplit() {
+        pstring info = this->toStringDate();
+        pliststring lres = info.split("-");
+        return lres.join("");
+    }
+
+    //2020-09-16
+    string toStringDate() {
+        pstring strall = this->toStringTimeFull();
+        return strall.substr(0, 10);
+    }
+
+
+    //10种获取当前时间,日期的静态函数
+    //20200916111111
+    static pstring getStringTimeFullNowNoSplitNoMs();
+
+    //20200916111111999
+    static pstring getStringTimeFullNowNoSplit();
+
+    //2020-09-16 00:44:27
+    static pstring getStringTimeFullNowNoMs();
+
+    //2020-09-16 00:44:27.854
+    static pstring getStringTimeFullNow();
+
+    //001122
+    static pstring getStringTimeNowNoSplitNoMs();
+
+    //001122999
+    static pstring getStringTimeNowNoSplit();
+
+    //00:44:27
+    static pstring getStringTimeNowNoMs();
+
+    //00:44:27.854
+    static pstring getStringTimeNow();
+
+    //20200916
+    static pstring getStringDateNowNoSplit();
+
+    //2020-09-16
+    static pstring getStringDateNow();
+
+
+    //原始获取时间差
     static double getDiff(clock_t t1, clock_t t2);
+
+    //从秒获取时间
     static ptime getTimeFromSeconds(int64_t secs);
 
+    //此函数会返回从公元 1970 年1 月1 日的UTC 时间从0 时0 分0 秒算起到现在所经过的秒数
+    static int64_t getSecondsFrom1970();
+
+    //2000-01-01 00:00:00.000
+    static int64_t getSecondsFromString(string strTime);
+
+    //#############################军队相关 自己写的，先不用，用plib里的积日积秒##########################
+    //这是积秒，军队项目要求从2000开始，用4字节存储--当我没说，积秒不是这样的
+    static int getSecondsFrom2000();
+
+    //获取2000开始的日期时间，要加上1970到2000的差才行
+    static ptime getTimeFromSeconds2000(int secs);
+
+    //#######################################没用
+    //这是真的积秒,本包数据发送北京时间相对本日0时的积秒，单位是0.1ms
+    static unsigned int getJS();
+
+    //从积秒获取时间HH:MM:SS
+    static string getTimeFromJS(int js);
+
+    //这是积日，军队项目要求从2000开始，用2字节存储
+    static unsigned short getJD();
+
+    //这一堆是获取积日
+    //IsLeap函数判断一个年份是否为闰年，方法如下:
+    static bool isLeap(int year);
+
+    //上面的StringToDate函数用于取出日期中的年月日并判断日期是否合法
+    //从字符中最得年月日 规定日期的格式是yyyy-mm-dd
+    static bool StringToDate(string date, int &year, int &month, int &day);
+
+    //DayInYear能根据给定的日期，求出它在该年的第几天，代码如下
+    static int getDayInYear(int year, int month, int day);
+
+    //获取两个日期之间的天数
+    static int getDaysBetween2Date(string date1, string date2);
+
     unsigned short year();
-    unsigned char  mon();
-    unsigned char  day();
-    unsigned char  hour();
-    unsigned char  minute();
-    unsigned char  second();
+
+    unsigned char mon();
+
+    unsigned char day();
+
+    unsigned char hour();
+
+    unsigned char minute();
+
+    unsigned char second();
+
     unsigned short msecond();
 
 
-
-    string toString();
-    pstring toPString()
-    {
-        return pstring(this->toString());
-    }
-
     //支持hlog，重写cout,前提是不能自动释放
-    friend ostream& operator<<(ostream &os,ptime time)
-    {
-        os<<time.toString();
+    friend ostream &operator<<(ostream &os, ptime time) {
+        os << time.toStringTimeFull();
         return os;
     }
-    friend istream& operator>>(istream& is,ptime& data)
-    {
+
+    //反序列化
+    friend istream &operator>>(istream &is, ptime &data) {
         string str;
-        for(int i=0;i<23;i++)
+        for (size_t i = 0; i < 23; i++)
             str.push_back(is.get());
-        //        hlogone(str);
-        xctime ct=clib_getTimeFromString(str.c_str());
-        data.time=ct;
+        xctime ct = clib_getTimeFromString(str.c_str());
+        data.time = ct;
         return is;
     }
-    //this -time2
-    double operator -(const ptime &time2);
-    //this + secs
-    ptime operator +(const time_t secs);
-    //this-secs
-    ptime operator -(const time_t secs);
-    //比较
-    bool operator<(const ptime & tm) const
-    {
-        if(clib_getDiffBetweenXtime(tm.time,this->time)<0)
+
+    //运算符重载
+    double operator-(const ptime &time2) {
+        return clib_getDiffBetweenXtime(time2.time, this->time);
+    }
+
+    ptime operator+(const int64_t secs) {
+        return ptime(clib_getTimeAdd(this->time, secs));
+    }
+
+    //相减精确到ms 单位是秒 tmnow-tmLastB : 6.00748
+    ptime operator-(const int64_t secs) {
+        return ptime(clib_getTimeSub(this->time, secs));
+    }
+
+    bool operator<(const ptime &tm) const {
+        if (clib_getDiffBetweenXtime(tm.time, this->time) < 0)
             return true;
         else
             return false;
     }
-    bool operator==(const ptime & tm)const
-    {
-        if(clib_getDiffBetweenXtime(tm.time,this->time)==0)
+
+    bool operator>(const ptime &tm) const {
+        if (clib_getDiffBetweenXtime(tm.time, this->time) < 0)
+            return false;
+        else
+            return true;
+    }
+
+    bool operator==(const ptime &tm) const {
+        if (clib_getDiffBetweenXtime(tm.time, this->time) == 0)
             return true;
         else
             return false;
     }
 };
+
+
+
+
 
 class protect{
 public:

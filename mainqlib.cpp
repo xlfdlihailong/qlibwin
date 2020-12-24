@@ -4,8 +4,10 @@ int main(int argc, char *argv[])
     QCoreApplication a(argc, argv);
     qlib::initLog("xlfd.log");
     hlog(plib::pwd());
+
 //    (plib::ssh("172.16.11.6"));
-    hlog(plib::xshzky("172.16.14.2","ifconfig"));
+//    hlog(plib::xshzky("172.16.14.2","ifconfig"));
+//    hlog(plib::xshplink("172.16.11.3","top "));
 //    hlog(plib::xsh("106.12.222.93","ps -ef|grep ssh"));
 //    hlog(plib::xsh("106.12.222.93","df -h"));
 //    hlog(plib::xsh("106.12.222.93","ll"));

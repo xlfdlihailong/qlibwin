@@ -45,3 +45,279 @@ lo        Link encap:Local Loopback
           RX bytes:604544732839 (563.0 GiB)  TX bytes:604544732839 (563.0 GiB)
 
 ]
+[15:46:35.848]-[tid: 8372]-[mainqlib.cpp:6][plib::pwd() : C:/Users/Administrator/Desktop/xlib/windows/qlibwin]
+[15:46:35.849]-[tid: 8372]-[plib.h:3472][info : xsh scfwq_325 172.16.14.2 'ifconfig']
+[15:46:36.479]-[tid: 8372]-[mainqlib.cpp:8][plib::xshzky("172.16.14.2","ifconfig") : bond0     Link encap:Ethernet  HWaddr F8:F2:1E:01:2C:A8  
+          inet addr:172.16.14.2  Bcast:172.16.14.255  Mask:255.255.255.0
+          inet6 addr: fe80::faf2:1eff:fe01:2ca8/64 Scope:Link
+          UP BROADCAST RUNNING MASTER MULTICAST  MTU:1500  Metric:1
+          RX packets:78286037614 errors:0 dropped:524161 overruns:0 frame:0
+          TX packets:115357529506 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:95065028453954 (86.4 TiB)  TX bytes:168599503917606 (153.3 TiB)
+
+eth0      Link encap:Ethernet  HWaddr F8:F2:1E:01:2C:A8  
+          UP BROADCAST RUNNING SLAVE MULTICAST  MTU:1500  Metric:1
+          RX packets:78286271682 errors:0 dropped:524161 overruns:0 frame:0
+          TX packets:115358129477 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:95065277995635 (86.4 TiB)  TX bytes:168600405199545 (153.3 TiB)
+
+eth2      Link encap:Ethernet  HWaddr F8:F2:1E:01:2C:A8  
+          UP BROADCAST SLAVE MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
+
+eth6      Link encap:Ethernet  HWaddr 00:50:56:B5:36:99  
+          inet6 addr: fe80::250:56ff:feb5:3699/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:670306 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:113952020 (108.6 MiB)  TX bytes:492 (492.0 b)
+          Interrupt:16 
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:1361278799 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1361278799 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:606396303105 (564.7 GiB)  TX bytes:606396303105 (564.7 GiB)
+
+]
+[15:49:29.033]-[tid: 1384]-[mainqlib.cpp:6][plib::pwd() : C:/Users/Administrator/Desktop/xlib/windows/qlibwin]
+[15:49:29.034]-[tid: 1384]-[plib.h:3472][info : xsh scfwq_325 172.16.14.2 'ifconfig']
+[15:49:30.079]-[tid: 1384]-[mainqlib.cpp:8][plib::xshzky("172.16.14.2","ifconfig") : bond0     Link encap:Ethernet  HWaddr F8:F2:1E:01:2C:A8  
+          inet addr:172.16.14.2  Bcast:172.16.14.255  Mask:255.255.255.0
+          inet6 addr: fe80::faf2:1eff:fe01:2ca8/64 Scope:Link
+          UP BROADCAST RUNNING MASTER MULTICAST  MTU:1500  Metric:1
+          RX packets:78286181043 errors:0 dropped:524161 overruns:0 frame:0
+          TX packets:115357615955 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:95065209214875 (86.4 TiB)  TX bytes:168599598248434 (153.3 TiB)
+
+eth0      Link encap:Ethernet  HWaddr F8:F2:1E:01:2C:A8  
+          UP BROADCAST RUNNING SLAVE MULTICAST  MTU:1500  Metric:1
+          RX packets:78286415111 errors:0 dropped:524161 overruns:0 frame:0
+          TX packets:115358215926 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:95065458756556 (86.4 TiB)  TX bytes:168600499530373 (153.3 TiB)
+
+eth2      Link encap:Ethernet  HWaddr F8:F2:1E:01:2C:A8  
+          UP BROADCAST SLAVE MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
+
+eth6      Link encap:Ethernet  HWaddr 00:50:56:B5:36:99  
+          inet6 addr: fe80::250:56ff:feb5:3699/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:670309 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:113952530 (108.6 MiB)  TX bytes:492 (492.0 b)
+          Interrupt:16 
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:1361292293 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1361292293 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:606412071967 (564.7 GiB)  TX bytes:606412071967 (564.7 GiB)
+
+]
+[15:49:31.539]-[tid: 1384]-[mainqlib.cpp:9][plib::xshplink("172.16.11.3","ifconfig") : eth0      Link encap:Ethernet  HWaddr 40:F2:E9:74:65:40  
+          inet addr:172.16.11.3  Bcast:172.16.11.255  Mask:255.255.255.0
+          inet6 addr: fe80::42f2:e9ff:fe74:6540/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:10765113246 errors:0 dropped:655 overruns:0 frame:0
+          TX packets:110224712377 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:908140458657 (845.7 GiB)  TX bytes:159689197846069 (145.2 TiB)
+
+eth5      Link encap:Ethernet  HWaddr 40:F2:E9:2B:39:55  
+          inet addr:192.168.11.3  Bcast:192.168.11.255  Mask:255.255.255.0
+          inet6 addr: fe80::42f2:e9ff:fe2b:3955/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:557738 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:7 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:191875634 (182.9 MiB)  TX bytes:510 (510.0 b)
+          Memory:c45e0000-c45fffff 
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:62319250 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:62319250 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:74680798959 (69.5 GiB)  TX bytes:74680798959 (69.5 GiB)
+
+usb0      Link encap:Ethernet  HWaddr 42:F2:E9:2B:39:51  
+          inet addr:169.254.95.120  Bcast:169.254.95.255  Mask:255.255.255.0
+          inet6 addr: fe80::40f2:e9ff:fe2b:3951/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:3301077 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:3314781 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:270037885 (257.5 MiB)  TX bytes:316345246 (301.6 MiB)
+
+virbr0    Link encap:Ethernet  HWaddr 52:54:00:41:66:F4  
+          inet addr:192.168.122.1  Bcast:192.168.122.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
+
+]
+[15:51:58.312]-[tid: 9184]-[mainqlib.cpp:6][plib::pwd() : C:/Users/Administrator/Desktop/xlib/windows/qlibwin]
+[15:51:58.313]-[tid: 9184]-[plib.h:3472][info : xsh scfwq_325 172.16.14.2 'ifconfig']
+[15:51:58.900]-[tid: 9184]-[mainqlib.cpp:8][plib::xshzky("172.16.14.2","ifconfig") : bond0     Link encap:Ethernet  HWaddr F8:F2:1E:01:2C:A8  
+          inet addr:172.16.14.2  Bcast:172.16.14.255  Mask:255.255.255.0
+          inet6 addr: fe80::faf2:1eff:fe01:2ca8/64 Scope:Link
+          UP BROADCAST RUNNING MASTER MULTICAST  MTU:1500  Metric:1
+          RX packets:78286304302 errors:0 dropped:524161 overruns:0 frame:0
+          TX packets:115357689997 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:95065364624101 (86.4 TiB)  TX bytes:168599678695977 (153.3 TiB)
+
+eth0      Link encap:Ethernet  HWaddr F8:F2:1E:01:2C:A8  
+          UP BROADCAST RUNNING SLAVE MULTICAST  MTU:1500  Metric:1
+          RX packets:78286538370 errors:0 dropped:524161 overruns:0 frame:0
+          TX packets:115358289969 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:95065614165782 (86.4 TiB)  TX bytes:168600579978150 (153.3 TiB)
+
+eth2      Link encap:Ethernet  HWaddr F8:F2:1E:01:2C:A8  
+          UP BROADCAST SLAVE MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
+
+eth6      Link encap:Ethernet  HWaddr 00:50:56:B5:36:99  
+          inet6 addr: fe80::250:56ff:feb5:3699/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:670311 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:113952870 (108.6 MiB)  TX bytes:492 (492.0 b)
+          Interrupt:16 
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:1361303810 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1361303810 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:606425225762 (564.7 GiB)  TX bytes:606425225762 (564.7 GiB)
+
+]
+[15:51:59.528]-[tid: 9184]-[mainqlib.cpp:9][plib::xshplink("172.16.11.3","top -n 1") : ]
+[15:52:07.978]-[tid: 7288]-[mainqlib.cpp:6][plib::pwd() : C:/Users/Administrator/Desktop/xlib/windows/qlibwin]
+[15:52:07.978]-[tid: 7288]-[plib.h:3472][info : xsh scfwq_325 172.16.14.2 'ifconfig']
+[15:52:08.576]-[tid: 7288]-[mainqlib.cpp:8][plib::xshzky("172.16.14.2","ifconfig") : bond0     Link encap:Ethernet  HWaddr F8:F2:1E:01:2C:A8  
+          inet addr:172.16.14.2  Bcast:172.16.14.255  Mask:255.255.255.0
+          inet6 addr: fe80::faf2:1eff:fe01:2ca8/64 Scope:Link
+          UP BROADCAST RUNNING MASTER MULTICAST  MTU:1500  Metric:1
+          RX packets:78286312463 errors:0 dropped:524161 overruns:0 frame:0
+          TX packets:115357694843 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:95065374947041 (86.4 TiB)  TX bytes:168599683952013 (153.3 TiB)
+
+eth0      Link encap:Ethernet  HWaddr F8:F2:1E:01:2C:A8  
+          UP BROADCAST RUNNING SLAVE MULTICAST  MTU:1500  Metric:1
+          RX packets:78286546534 errors:0 dropped:524161 overruns:0 frame:0
+          TX packets:115358294816 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:95065624489010 (86.4 TiB)  TX bytes:168600585234822 (153.3 TiB)
+
+eth2      Link encap:Ethernet  HWaddr F8:F2:1E:01:2C:A8  
+          UP BROADCAST SLAVE MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
+
+eth6      Link encap:Ethernet  HWaddr 00:50:56:B5:36:99  
+          inet6 addr: fe80::250:56ff:feb5:3699/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:670311 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:113952870 (108.6 MiB)  TX bytes:492 (492.0 b)
+          Interrupt:16 
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:1361304659 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1361304659 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:606426345926 (564.7 GiB)  TX bytes:606426345926 (564.7 GiB)
+
+]
+[15:52:09.186]-[tid: 7288]-[mainqlib.cpp:9][plib::xshplink("172.16.11.3","top -n 1") : ]
+[15:52:39.412]-[tid: 2264]-[mainqlib.cpp:6][plib::pwd() : C:/Users/Administrator/Desktop/xlib/windows/qlibwin]
+[15:52:39.412]-[tid: 2264]-[plib.h:3472][info : xsh scfwq_325 172.16.14.2 'ifconfig']
+[15:52:40.085]-[tid: 2264]-[mainqlib.cpp:8][plib::xshzky("172.16.14.2","ifconfig") : bond0     Link encap:Ethernet  HWaddr F8:F2:1E:01:2C:A8  
+          inet addr:172.16.14.2  Bcast:172.16.14.255  Mask:255.255.255.0
+          inet6 addr: fe80::faf2:1eff:fe01:2ca8/64 Scope:Link
+          UP BROADCAST RUNNING MASTER MULTICAST  MTU:1500  Metric:1
+          RX packets:78286352439 errors:0 dropped:524161 overruns:0 frame:0
+          TX packets:115357804008 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:95065408407148 (86.4 TiB)  TX bytes:168599842340505 (153.3 TiB)
+
+eth0      Link encap:Ethernet  HWaddr F8:F2:1E:01:2C:A8  
+          UP BROADCAST RUNNING SLAVE MULTICAST  MTU:1500  Metric:1
+          RX packets:78286586508 errors:0 dropped:524161 overruns:0 frame:0
+          TX packets:115358403979 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:95065657948895 (86.4 TiB)  TX bytes:168600743622444 (153.3 TiB)
+
+eth2      Link encap:Ethernet  HWaddr F8:F2:1E:01:2C:A8  
+          UP BROADCAST SLAVE MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
+
+eth6      Link encap:Ethernet  HWaddr 00:50:56:B5:36:99  
+          inet6 addr: fe80::250:56ff:feb5:3699/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:670312 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:113953040 (108.6 MiB)  TX bytes:492 (492.0 b)
+          Interrupt:16 
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:1361307164 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1361307164 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:606429217577 (564.7 GiB)  TX bytes:606429217577 (564.7 GiB)
+
+]
+[15:52:40.700]-[tid: 2264]-[mainqlib.cpp:9][plib::xshplink("172.16.11.3","top ") : ]
+[16:23:06.951]-[tid: 6308]-[mainqlib.cpp:6][plib::pwd() : C:/Users/Administrator/Desktop/xlib/windows/qlibwin]
+[16:23:06.952]-[tid: 6308]-[mainqlib.cpp:9][listhwnd : len: 1 pvector
+{
+000C089E
+}]
+[16:23:06.952]-[tid: 6308]-[mainqlib.cpp:11][hfinal : 000C089E]
+[16:23:06.952]-[tid: 6308]-[mainqlib.cpp:14][content : root@chuanshu1:~]

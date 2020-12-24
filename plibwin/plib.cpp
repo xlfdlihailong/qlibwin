@@ -1996,87 +1996,132 @@ xctime clib_getTimeFromSeconds(const time_t sec)
     return time;
 }
 
-xctime clib_getTimeFromString(const char *pch)
+xctime clib_getTimeFromString(const char *arrchTime)
 {
-    xctime time=xtime_init();
-    if(strlen(pch)!=23)
-    {
-        hlog("要获取时间的字符串是个非法字符串，长度不是19");
-        return time;
-    }
-    //    HLOG_STRING(pch);
+    char acyear[10];
+       bzero(acyear, 10);
+       char acmon[10];
+       bzero(acmon, 10);
+       char acday[10];
+       bzero(acday, 10);
+       char achour[10];
+       bzero(achour, 10);
+       char acmin[10];
+       bzero(acmin, 10);
+       char acsec[10];
+       bzero(acsec, 10);
+       char acM[10];
+       bzero(acM, 10);
+       xctime time = xtime_init();
+       int ilenStringTime = strlen(arrchTime);
+   //    HLOG_INT(ilenStringTime);
+       if (ilenStringTime != 23 && ilenStringTime != 19 && ilenStringTime != 17
+       && ilenStringTime != 14) {
+           hlog(pstring()<<"获取时间字符串 %s 非法,不是yyyy-mm-dd HH:MM:SS.sss,yyyy-mm-dd HH:MM:SS,yyyymmddHHMMSS,yyyymmddHHMMSSsss中的一种"<<
+                arrchTime);
+           return time;
+       }
+       int len=strlen(arrchTime);
+       char pchRes[30];
+       bzero(pchRes, sizeof(pchRes));
+       strcpy(pchRes, arrchTime);
 
-    //cstring_split有问题，没用
+       if (len == 19)//如果不带ms,则加.000
+       {
+           sprintf(pchRes, "%s.000", pchRes);
+           memcpy(acyear, pchRes, 4);
+           hlog(acyear);
+           memcpy(acmon, pchRes + 5, 2);
+           hlog(acmon);
+           memcpy(acday, pchRes + 8, 2);
+           hlog(acday);
+           memcpy(achour, pchRes + 11, 2);
+           hlog(achour);
+           memcpy(acmin, pchRes + 14, 2);
+           hlog(acmin);
+           memcpy(acsec, pchRes + 17, 2);
+           hlog(acsec);
+           memcpy(acM, pchRes + 20, 3);
+           hlog(acM);
+       }
+       else if(len==23)
+       {
+           memcpy(acyear, pchRes, 4);
+           hlog(acyear);
+           memcpy(acmon, pchRes + 5, 2);
+           hlog(acmon);
+           memcpy(acday, pchRes + 8, 2);
+           hlog(acday);
+           memcpy(achour, pchRes + 11, 2);
+           hlog(achour);
+           memcpy(acmin, pchRes + 14, 2);
+           hlog(acmin);
+           memcpy(acsec, pchRes + 17, 2);
+           hlog(acsec);
+           memcpy(acM, pchRes + 20, 3);
+           hlog(acM);
+       }
+       else if(len==17)
+       {
+           memcpy(acyear, pchRes, 4);
+           hlog(acyear);
+           memcpy(acmon, pchRes + 4, 2);
+           hlog(acmon);
+           memcpy(acday, pchRes + 6, 2);
+           hlog(acday);
+           memcpy(achour, pchRes + 8, 2);
+           hlog(achour);
+           memcpy(acmin, pchRes + 10, 2);
+           hlog(acmin);
+           memcpy(acsec, pchRes + 12, 2);
+           hlog(acsec);
+           memcpy(acM, pchRes + 14, 3);
+           hlog(acM);
+       }
+       else if(len==14)
+       {
+           memcpy(acyear, pchRes, 4);
+           hlog(acyear);
+           memcpy(acmon, pchRes + 4, 2);
+           hlog(acmon);
+           memcpy(acday, pchRes + 6, 2);
+           hlog(acday);
+           memcpy(achour, pchRes + 8, 2);
+           hlog(achour);
+           memcpy(acmin, pchRes + 10, 2);
+           hlog(acmin);
+           memcpy(acsec, pchRes + 12, 2);
+           hlog(acsec);
+           strcpy(acM,"000");
+           hlog(acM);
+       }
 
-    char acyear[10];memset(acyear,0,10);
-    memcpy(acyear,pch,4);
-    //    HLOG_STRING(acyear);
-    char acmon[10];memset(acmon,0,10);
-    memcpy(acmon,pch+5,2);
-    //    HLOG_STRING(acmon);
-    char acday[10];memset(acday,0,10);
-    memcpy(acday,pch+8,2);
-    //    HLOG_STRING(acday);
-    char achour[10];memset(achour,0,10);
-    memcpy(achour,pch+11,2);
-    //    HLOG_STRING(achour);
-    char acmin[10];memset(acmin,0,10);
-    memcpy(acmin,pch+14,2);
-    //    HLOG_STRING(acmin);
-    char acsec[10];memset(acsec,0,10);
-    memcpy(acsec,pch+17,2);
-
-    char acM[10];memset(acM,0,10);
-    memcpy(acM,pch+20,3);
-    //    HLOG_STRING(acsec);
-    //     cstring_toStringFix(strYear,acyear);
-    //     cstring_toStringFix(strMonth,acmon);
-    //     cstring_toStringFix(strDay,acday);
-    //     cstring_toStringFix(strHour,achour);
-    //     cstring_toStringFix(strMinute,acmin);
-    //     cstring_toStringFix(strSecond,acsec);
-
-    //    HLOG_STRING(acyear);
-    //    HLOG_STRING(acmon);
-    //    HLOG_STRING(acday);
-    //    HLOG_STRING(achour);
-    //    HLOG_STRING(acmin);
-    //    HLOG_STRING(acsec);
 
 
-    time.ushYear=atoi(acyear);
-    time.uchMonth=atoi(acmon);
-    time.uchDay=atoi(acday);
-    time.uchHour=atoi(achour);
-    time.uchMinute=atoi(acmin);
-    time.uchSecond=atoi(acsec);
+       //赋值
+       time.ushYear = atoi(acyear);
+       time.uchMonth = atoi(acmon);
+       time.uchDay = atoi(acday);
+       time.uchHour = atoi(achour);
+       time.uchMinute = atoi(acmin);
+       time.uchSecond = atoi(acsec);
 
-    time.ushMSecond=atoi(acM);
-    //    HLOG_TIME(time);
+       time.ushMSecond = atoi(acM);
 
-    //    listleft->destroy(listleft);
-    //    listright->destroy(listright);
-    //    listStr->destroy(listStr);
-    //    str->destroy(str);
+       struct tm tm_;
+       tm_.tm_year = time.ushYear - 1900;
+       tm_.tm_mon = time.uchMonth - 1;
+       tm_.tm_mday = time.uchDay;
+       tm_.tm_hour = time.uchHour;
+       tm_.tm_min = time.uchMinute;
+       tm_.tm_sec = time.uchSecond;
+       tm_.tm_isdst = 0;
 
+       time_t t_ = mktime(&tm_); //已经减了8个时区
 
-
-
-    struct tm tm_;
-    tm_.tm_year  = time.ushYear-1900;
-    tm_.tm_mon   = time.uchMonth-1;
-    tm_.tm_mday  = time.uchDay;
-    tm_.tm_hour  = time.uchHour;
-    tm_.tm_min   = time.uchMinute;
-    tm_.tm_sec   = time.uchSecond;
-    tm_.tm_isdst = 0;
-
-    time_t t_ = mktime(&tm_); //已经减了8个时区
-
-    time.struTime.tv_sec=t_;
-    //    time.struTime.tv_usec=0;
-    time.struTime.tv_usec=time.ushMSecond*1000;//微妙数=毫秒数*1000
-    return time;
+       time.struTime.tv_sec = t_;
+       time.struTime.tv_usec = time.ushMSecond * 1000;//微妙数=毫秒数*1000
+       return time;
 }
 
 time_t clib_getSecondsFromXtime(xctime time)
@@ -2092,32 +2137,31 @@ time_t clib_getSecondsFromXtime(xctime time)
 }
 
 
-ptime::ptime()
-{
+
+
+
+
+ptime::ptime() {
     init();
-    this->time=clib_getTimeNow();
+    this->time = clib_getTimeNow();
 }
 
-void ptime::init()
-{
-    gettimeofday(&(this->time.struTime),NULL); //gettimeofday(&start,&tz);结果一样
+void ptime::init() {
+    gettimeofday(&(this->time.struTime), NULL); //gettimeofday(&start,&tz);结果一样
 }
 
-void ptime::setNowTime()
-{
+void ptime::setNowTime() {
     this->init();
-    this->time=clib_getTimeNow();
+    this->time = clib_getTimeNow();
 }
 
 
-ptime::ptime(xctime time)
-{
+ptime::ptime(xctime time) {
     init();
-    this->time=time;
+    this->time = time;
 }
 
-ptime::ptime(int year, int mon, int day, int hour, int min, int sec)
-{
+ptime::ptime(int year, int mon, int day, int hour, int min, int sec,int ms) {
     init();
     //直接赋值有错，还是直接用字符串比较好
     //    this->time.ushYear=year;
@@ -2127,153 +2171,285 @@ ptime::ptime(int year, int mon, int day, int hour, int min, int sec)
     //    this->time.uchMinute=min;
     //    this->time.uchSecond=sec;
 
-    string strtime=plib::toString(year)+"-";
+    string strtime = plib::toString(year) + "-";
     string strmon;
-    if(mon<10)
-        strmon="0"+plib::toString(mon);
+    if (mon < 10)
+        strmon = "0" + plib::toString(mon);
     else
-        strmon=plib::toString(mon);
+        strmon = plib::toString(mon);
     string strday;
-    if(day<10)
-        strday="0"+plib::toString(day);
+    if (day < 10)
+        strday = "0" + plib::toString(day);
     else
-        strday=plib::toString(day);
+        strday = plib::toString(day);
     string strhour;
-    if(hour<10)
-        strhour="0"+plib::toString(hour);
+    if (hour < 10)
+        strhour = "0" + plib::toString(hour);
     else
-        strhour=plib::toString(hour);
+        strhour = plib::toString(hour);
     string strmin;
-    if(min<10)
-        strmin="0"+plib::toString(min);
+    if (min < 10)
+        strmin = "0" + plib::toString(min);
     else
-        strmin=plib::toString(min);
+        strmin = plib::toString(min);
     string strsec;
-    if(sec<10)
-        strsec="0"+plib::toString(sec);
+    if (sec < 10)
+        strsec = "0" + plib::toString(sec);
     else
-        strsec=plib::toString(sec);
+        strsec = plib::toString(sec);
+    string strms;
+    if(ms<10)
+        strms="00"+plib::toString(ms);
+    else if(ms>=10&&ms<100)
+        strms="0"+plib::toString(ms);
+    else
+        strms=plib::toString(ms);
 
-    strtime=strtime+strmon+"-"+strday+" "+strhour+":"+strmin+":"+strsec;
-    //    hlog(strtime);
+    strtime=strtime+strmon+"-"+strday+" "+strhour+":"+strmin+":"+strsec+"."+strms;
+    hlog(strtime);
 
     this->time=clib_getTimeFromString(strtime.c_str());
 }
 
-ptime::ptime(string strTime)
-{
+ptime::ptime(string strTime) {
     init();
     //    clib c=clibInit();
     //    this->time=c.getTimeFromString(strTime.c_str());
-    this->time=clib_getTimeFromString(strTime.c_str());
+    this->time = clib_getTimeFromString(strTime.c_str());
 }
-ptime::ptime(const char* acTime)
-{
+
+ptime::ptime(const char *acTime) {
     init();
     //    clib c=clibInit();
     //    this->time=c.getTimeFromString(acTime);
-    this->time=clib_getTimeFromString(acTime);
+    this->time = clib_getTimeFromString(acTime);
 }
-pstring ptime::getTimeNow() {
+pstring ptime::getStringTimeNow() {
     pstring strTimeNow=plib::getTimeNow();
 //    hlog(strTimeNow);
     return strTimeNow.substr(11,strTimeNow.size());
 }
 
-pstring ptime::getTimeNoMsNow() {
+pstring ptime::getStringTimeNowNoMs() {
     return plib::getTimeHHMMSS();
 }
 
-pstring ptime::getTimeFullNoMsNow() {
-    pstring strTimeFull=ptime::getTimeFullNow();
+pstring ptime::getStringTimeFullNowNoMs() {
+    pstring strTimeFull= ptime::getStringTimeFullNow();
     return strTimeFull.substr(0,strTimeFull.size()-4);
 }
 
-pstring ptime::getTimeFullNow() {
+pstring ptime::getStringTimeFullNow() {
     char acTime[22];
     bzero(acTime, 22);
     clib_getStringTimeNow(acTime);
     return string(acTime);
 }
 
-pstring ptime::getDateNow() {
-    string time = getTimeFullNow();
+pstring ptime::getStringDateNow() {
+    string time = getStringTimeFullNow();
     return time.substr(0, 10);
 }
-unsigned short ptime::year()
-{
+
+unsigned short ptime::year() {
     return this->time.ushYear;
 }
 
-unsigned char ptime::mon()
-{
+unsigned char ptime::mon() {
     return this->time.uchMonth;
 }
 
-unsigned char ptime::day()
-{
+unsigned char ptime::day() {
     return this->time.uchDay;
 }
 
-unsigned char  ptime::hour()
-{
+unsigned char ptime::hour() {
     return this->time.uchHour;
 }
 
-unsigned char  ptime::minute()
-{
+unsigned char ptime::minute() {
     return this->time.uchMinute;
 }
 
-unsigned char ptime::second()
-{
+unsigned char ptime::second() {
     return this->time.uchSecond;
 }
 
-unsigned short ptime::msecond()
-{
+unsigned short ptime::msecond() {
     return this->time.ushMSecond;
 }
 
-double ptime::getDiff(clock_t t1, clock_t t2)
-{
-    return ((double)(t1-t2))/CLOCKS_PER_SEC;
+double ptime::getDiff(clock_t t1, clock_t t2) {
+    return ((double) (t1 - t2)) / CLOCKS_PER_SEC;
 }
 
-ptime ptime::getTimeFromSeconds(int64_t secs)
-{
+ptime ptime::getTimeFromSeconds(int64_t secs) {
     return ptime(clib_getTimeFromSeconds(secs));
 }
 
-string  ptime::toString()
-{
-    char acTime[30];
-    clib_getStringFromXtime(this->time,acTime);
-    return string(acTime);
+int64_t ptime::getSecondsFrom1970() {
+    return clib_getNowSeconds();
 }
 
-double ptime::operator -(const ptime &time2)
-{
-    //    hlog(time2);
-    //    hlog(*this);
-    //    HLOG_TIME(time2.time);
-    //    HLOG_TIME(this->time);
-    return clib_getDiffBetweenXtime(time2.time,this->time);
+//2000-01-01 00:00:00.000
+int64_t ptime::getSecondsFromString(string strTime) {
+    xctime ct = clib_getTimeFromString(strTime.c_str());
+    return clib_getSecondsFromXtime(ct);
+}
+
+int ptime::getSecondsFrom2000() {
+    return getSecondsFromString("2000-01-01 00:00:00.000");
+}
+
+//获取2000开始的日期时间，要加上1970到2000的差才行
+ptime ptime::getTimeFromSeconds2000(int secs) {
+    int64_t icha = ptime::getSecondsFrom1970() - ptime::getSecondsFrom2000();
+    int64_t iTotalFrom1970 = secs + icha;
+    return ptime::getTimeFromSeconds(iTotalFrom1970);
+}
+
+unsigned int ptime::getJS() {
+    ptime tmnow;
+    string strdate = tmnow.toStringDate();
+//    hlog(strdate);
+    string timeres = strdate + " 00:00:00.000";
+//    hlog(timeres);
+    ptime tmorign(timeres);
+
+    double dbcha = tmnow - tmorign;
+    return dbcha * 10000;
+    //    ptime tmorigin()
+}
+
+//从积秒获取时间HH:MM:SS
+string ptime::getTimeFromJS(int js) {
+    int hour = js / 36000000;
+//    hlog(hour);
+    int min = (js - hour * 36000000) / 600000;
+//    hlog(min);
+    int sec = (js - hour * 36000000 - min * 600000) / 10000;
+//    hlog(sec);
+    char acres[30];
+    cinit(acres);
+    sprintf(acres, "%02d:%02d:%02d", hour, min, sec);
+//    hlog(acres);
+    return string(acres);
 }
 
 
-ptime ptime::operator +(const time_t secs)
-{
-    return ptime(clib_getTimeAdd(this->time,secs));
+//IsLeap函数判断一个年份是否为闰年，方法如下:
+bool ptime::isLeap(int year) {
+    return (year % 4 == 0 || year % 400 == 0) && (year % 100 != 0);
 }
 
-ptime ptime::operator -(const int64_t secs)
-{
-    return ptime(clib_getTimeSub(this->time,secs));
+//上面的StringToDate函数用于取出日期中的年月日并判断日期是否合法
+//从字符中最得年月日 规定日期的格式是yyyy-mm-dd
+bool ptime::StringToDate(string date, int &year, int &month, int &day) {
+    year = atoi((date.substr(0, 4)).c_str());
+    month = atoi((date.substr(5, 2)).c_str());
+    day = atoi((date.substr(8, 2)).c_str());
+    int DAY[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    if (isLeap(year)) {
+        DAY[1] = 29;
+    }
+    return year >= 0 && month <= 12 && month > 0 && day <= DAY[month] && day > 0;
 }
 
+//DayInYear能根据给定的日期，求出它在该年的第几天，代码如下
+int ptime::getDayInYear(int year, int month, int day) {
+    //int _day = 0;
+    int DAY[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    if (isLeap(year))
+        DAY[1] = 29;
+    for (int i = 0; i < month - 1; ++i) {
+        day += DAY[i];
+    }
+    return day;
+}
 
+int ptime::getDaysBetween2Date(string date1, string date2) {
+    //取出日期中的年月日
+    int year1, month1, day1;
+    int year2, month2, day2;
+    if (!StringToDate(date1, year1, month1, day1) || !StringToDate(date2, year2, month2, day2)) {
+        cout << "输入的日期格式不正确";
+        return -1;
+    }
+    if (year1 == year2 && month1 == month2) {
+        return day1 > day2 ? day1 - day2 : day2 - day1;
 
+        //如果年相同
+    } else if (year1 == year2) {
+        int d1, d2;
+        d1 = getDayInYear(year1, month1, day1);
+        d2 = getDayInYear(year2, month2, day2);
+        return d1 > d2 ? d1 - d2 : d2 - d1;
+
+        //年月都不相同
+    } else {
+        //确保year1年份比year2早
+        if (year1 > year2) {
+            //swap进行两个值的交换
+            swap(year1, year2);
+            swap(month1, month2);
+            swap(day1, day2);
+        }
+        int d1, d2, d3;
+        if (isLeap(year1))
+            d1 = 366 - getDayInYear(year1, month1, day1); //取得这个日期在该年还于下多少天
+        else
+            d1 = 365 - getDayInYear(year1, month1, day1);
+        d2 = getDayInYear(year2, month2, day2); //取得在当年中的第几天
+        cout << "d1:" << d1 << ", d2:" << d2;
+
+        d3 = 0;
+        for (int year = year1 + 1; year < year2; year++) {
+            if (isLeap(year))
+                d3 += 366;
+            else
+                d3 += 365;
+        }
+        return d1 + d2 + d3;
+    }
+}
+
+//这是积日，军队项目要求从2000开始，用2字节存储
+unsigned short ptime::getJD() {
+    ptime tnow;
+    string date = tnow.toStringDate();
+    return getDaysBetween2Date(date, "2000-01-01");
+}
+
+pstring ptime::getStringTimeFullNowNoSplit() {
+    return plib::getTimeNowNoSplit();
+}
+
+pstring ptime::getStringTimeFullNowNoSplitNoMs() {
+//    return plib::getTimeNowNoSplitNoMs();
+    ptime tnow;
+    pstring info=plib::toString(tnow);
+    pliststring lres=info.split("- :.");
+    pstring stres=lres.join("");
+    return stres.substr(0,stres.size()-3);
+}
+
+pstring ptime::getStringTimeNowNoSplit() {
+    pstring info= ptime::getStringTimeNow();
+    pliststring lres= info.split(":.");
+    return lres.join("");
+}
+
+pstring ptime::getStringTimeNowNoSplitNoMs() {
+    pstring info= ptime::getStringTimeNowNoMs();
+    pliststring lres=info.split(":");
+    return lres.join("");
+}
+
+pstring ptime::getStringDateNowNoSplit() {
+    pstring info= ptime::getStringDateNow();
+    pliststring lres=info.split("-");
+    return lres.join("");
+}
 
 
 

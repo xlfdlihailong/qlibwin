@@ -1,0 +1,22 @@
+cmake_minimum_required(VERSION 3.16)
+project(plib)
+
+set(CMAKE_CXX_STANDARD 11)
+
+add_executable(plib
+        mainplib.cpp
+        pudp.h
+        pudp.cpp
+        plib.cpp
+        plib.h
+        pxml.cpp
+        pxml.h
+        tinystr.cpp
+        tinystr.h
+        tinyxml.cpp
+        tinyxml.h
+        tinyxmlerror.cpp
+        tinyxmlparser.cpp test/testudp.h ptcp.cpp ptcp.h test/testptime.h test/testserialization.h test/testptcp.h test/testpudp.h)
+#target_link_libraries(${PROJECT_NAME} -lpthread)
+#target_link_libraries(${PROJECT_NAME} /usr/lib64/mysql/libmysqlclient.a)
+#target_link_libraries(${PROJECT_NAME} -lmysqlclient)

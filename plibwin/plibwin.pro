@@ -23,6 +23,11 @@ HEADERS += \
     tinystr.h \
     tinyxml.h \
     pudp.h \
-    ptcp.h
+    ptcp.h \
+    test/testptcp.h \
+    test/testptime.h \
+    test/testpudp.h \
+    test/testserialization.h \
+    test/testudp.h
 
 TARGET=plibwin

@@ -67,7 +67,12 @@ DIST          =  plib.h \
 		tinystr.h \
 		tinyxml.h \
 		pudp.h \
-		ptcp.h plib.cpp \
+		ptcp.h \
+		test/testptcp.h \
+		test/testptime.h \
+		test/testpudp.h \
+		test/testserialization.h \
+		test/testudp.h plib.cpp \
 		pxml.cpp \
 		tinystr.cpp \
 		tinyxml.cpp \

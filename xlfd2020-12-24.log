@@ -1,0 +1,25 @@
+[12:37:11.040]-[tid: 7672]-[mainqlib.cpp:6][plib::pwd() : C:/Users/Administrator/Desktop/xlib/windows/qlibwin]
+[12:37:11.043]-[tid: 7672]-[mainqlib.cpp:9][listhwnd : len: 0 pvector
+{
+}]
+[12:37:46.044]-[tid: 4652]-[mainqlib.cpp:6][plib::pwd() : C:/Users/Administrator/Desktop/xlib/windows/qlibwin]
+[12:37:46.044]-[tid: 4652]-[mainqlib.cpp:9][listhwnd : len: 0 pvector
+{
+}]
+[12:37:56.426]-[tid: 7548]-[mainqlib.cpp:6][plib::pwd() : C:/Users/Administrator/Desktop/xlib/windows/qlibwin]
+[12:37:56.426]-[tid: 7548]-[mainqlib.cpp:9][listhwnd : len: 0 pvector
+{
+}]
+[12:39:41.486]-[tid: 5196]-[mainqlib.cpp:6][plib::pwd() : C:/Users/Administrator/Desktop/xlib/windows/qlibwin]
+[12:39:41.487]-[tid: 5196]-[mainqlib.cpp:9][listhwnd : len: 0 pvector
+{
+}]
+[12:41:59.641]-[tid: 4692]-[mainqlib.cpp:6][plib::pwd() : C:/Users/Administrator/Desktop/xlib/windows/qlibwin]
+[12:41:59.641]-[tid: 4692]-[mainqlib.cpp:9][listhwnd : len: 0 pvector
+{
+}]
+[12:42:07.924]-[tid: 7564]-[mainqlib.cpp:6][plib::pwd() : C:/Users/Administrator/Desktop/xlib/windows/qlibwin]
+[12:42:07.924]-[tid: 7564]-[mainqlib.cpp:9][listhwnd : len: 0 pvector
+{
+}]
+[12:42:55.214]-[tid: 1056]-[mainqlib.cpp:6][plib::pwd() : C:/Users/Administrator/Desktop/xlib/windows/qlibwin]
